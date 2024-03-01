@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "personalbot"
+version = "0.1.0"
+description = ""
+authors = ["Oscar <oskrf13@gmail.com>"]
+license = "\u001b[3~"
+readme = "README.md"
+packages = [{ include = "**/*" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+langchain = "^0.1.9"
+python-telegram-bot = {extras = ["job-queue"], version = "^20.8"}
+langchain-core = "^0.1.27"
+langchain-community = "^0.0.24"
+langchain-openai = "^0.0.8"
+python-dotenv = "^1.0.1"
+fastapi = "^0.110.0"
+uvicorn = {extras = ["standard"], version = "^0.27.1"}
+prisma = "^0.12.0"
+pytest = "^8.0.2"
+pytest-aio = "^1.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
