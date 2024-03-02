@@ -1,9 +1,10 @@
 from typing import Any, Union
 
 from fastapi import FastAPI
-from telegram import Update
-from Bot.bot import lifespan
- 
+from Bot.bot import lifespan,ptb
+from Bot.commands import start
+
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -15,8 +16,10 @@ async def read_root():
     return {"Hello": "World"}
 
 
-@app.post("/webhook")
+@app.post("/webhook",status_code=200)
 async def webhook(val:Any):
-
     print(val)
     return {"ok": True}
+
+
+
