@@ -18,7 +18,7 @@ async def read_root():
 
 
 @app.post("/webhook",status_code=200)
-async def webhook(val:Update):
+async def webhook(val:Request):
     data = await val.json()
     await ptb.bot.send_message(Config.ADMIN_ID, json.dumps(data, indent=2))
     return {"ok": True}
