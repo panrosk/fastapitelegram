@@ -1,6 +1,7 @@
 from typing import Any, Union
 import json
 from fastapi import FastAPI, Request
+from telegram import Update
 from Bot.bot import lifespan,ptb
 from Bot.commands import start
 from Bot.botConfig import Config
@@ -17,7 +18,7 @@ async def read_root():
 
 
 @app.post("/webhook",status_code=200)
-async def webhook(val:Request):
+async def webhook(val:Update):
     data = await val.json()
     await ptb.bot.send_message(Config.ADMIN_ID, json.dumps(data, indent=2))
     return {"ok": True}
